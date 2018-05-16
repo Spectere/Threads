@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.Core", "Threads.Core\Threads.Core.csproj", "{D74B2CE4-0B12-4FD9-A45B-F0DE138EC300}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.Player", "Threads.Player\Threads.Player.csproj", "{87982824-478C-483E-90E3-E8E4CAA27DB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.Editor", "Threads.Editor\Threads.Editor.csproj", "{A71B33B4-94AB-422F-9069-909A8CFCEB12}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D74B2CE4-0B12-4FD9-A45B-F0DE138EC300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D74B2CE4-0B12-4FD9-A45B-F0DE138EC300}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D74B2CE4-0B12-4FD9-A45B-F0DE138EC300}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D74B2CE4-0B12-4FD9-A45B-F0DE138EC300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87982824-478C-483E-90E3-E8E4CAA27DB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87982824-478C-483E-90E3-E8E4CAA27DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87982824-478C-483E-90E3-E8E4CAA27DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87982824-478C-483E-90E3-E8E4CAA27DB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A71B33B4-94AB-422F-9069-909A8CFCEB12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A71B33B4-94AB-422F-9069-909A8CFCEB12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A71B33B4-94AB-422F-9069-909A8CFCEB12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A71B33B4-94AB-422F-9069-909A8CFCEB12}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
