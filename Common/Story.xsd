@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="https://www.spectere.net/xsd/Threads/Story-0.1.0.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.spectere.net/xsd/Threads/Story-0.1.0.xsd">
+    <xs:element name="Story">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="Information" type="InformationType" />
+                <xs:element name="Settings" type="SettingsType" />
+                <xs:element name="Pages">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Page" type="PageType" maxOccurs="unbounded" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+        <xs:key name="KeyPage">
+            <xs:selector xpath="Pages/Page" />
+            <xs:field xpath="@Name" />
+        </xs:key>
+        <xs:keyref name="FirstPageRef" refer="KeyPage">
+            <xs:selector xpath="Settings/FirstPage" />
+            <xs:field xpath="@Page" />
+        </xs:keyref>
+        <xs:keyref name="ChoicePageRef" refer="KeyPage">
+            <xs:selector xpath="Pages/Page/Objects/Choice" />
+            <xs:field xpath="@Page" />
+        </xs:keyref>
+    </xs:element>
+
+    <!--
+      Story Types
+      -->
+    <xs:complexType name="InformationType">
+        <xs:all>
+            <xs:element name="Title" type="xs:string" />
+            <xs:element name="Author" type="xs:string" minOccurs="0" />
+            <xs:element name="Version" type="xs:string" minOccurs="0" />
+            <xs:element name="Website" type="xs:string" minOccurs="0" />
+        </xs:all>
+    </xs:complexType>
+    
+    <xs:complexType name="SettingsType">
+        <xs:all>
+            <xs:element name="FirstPage">
+                <xs:complexType>
+                    <xs:attribute name="Page" type="xs:string" use="required" />
+                </xs:complexType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+    
+    <xs:complexType name="PageType">
+        <xs:all>
+            <xs:element name="Objects">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded">
+                        <xs:element name="Paragraph" type="ParagraphObject" maxOccurs="unbounded" />
+                        <xs:element name="Choice" type="ChoiceObject" maxOccurs="unbounded" />
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+        </xs:all>
+        <xs:attribute name="Name" type="xs:string" />
+    </xs:complexType>
+
+    <!--
+      Object Base
+      -->
+    <xs:complexType name="Object" abstract="true">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="Name" type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!--
+      Visual Objects
+      -->
+    <xs:complexType name="VisualObject" abstract="true">
+        <xs:simpleContent>
+            <xs:extension base="Object" />
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="ParagraphObject">
+        <xs:simpleContent>
+            <xs:extension base="VisualObject" />
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!--
+      Action Objects
+      -->
+    <xs:complexType name="ActionObject" abstract="true">
+        <xs:simpleContent>
+            <xs:extension base="Object" />
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="ChoiceObject">
+        <xs:simpleContent>
+            <xs:extension base="ActionObject">
+                <xs:attribute name="Page" type="xs:string" use="required" />
+                <xs:attribute name="Key" type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+</xs:schema>

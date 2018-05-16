@@ -1,5 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
+  <Target Name="StoryXsdToClass" BeforeTargets="Build" Outputs="SerializedTypes/Story.cs">
+    <MakeDir Directories="SerializedTypes" />
+    <Exec Command="xsd ../Common/Story.xsd /c /n:Threads.Core.SerializedTypes /o:SerializedTypes" />
+  </Target>
 </Project>

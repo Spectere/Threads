@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Story xmlns:s="https://www.spectere.net/xsd/Threads/Story-0.1.0.xsd">
+    <Information>
+        <Title>Basic Sample Story</Title>
+        <Author>Spectere</Author>
+        <Version>0.1.0</Version>
+        <Website>https://github.com/Spectere/Threads/</Website>
+    </Information>
+    <Settings>
+        <FirstPage Page="HelloPage" />
+    </Settings>
+    <Pages>
+        <Page Name="HelloPage">
+            <Objects>
+                <Paragraph>Hello, world! We seem to be alive and well.</Paragraph>
+                <Paragraph>Let's keep the momentum going, shall we?</Paragraph>
+                <Choice Page="SecondPage">Onward!</Choice>
+            </Objects>
+        </Page>
+        <Page Name="SecondPage">
+            <Objects>
+                <Paragraph>We've reached page two. Beautiful!</Paragraph>
+                <Choice Page="ThirdPage" Key="1">Onward!</Choice>
+                <Choice Page="HelloPage" Key="2">Let's go back!</Choice>
+            </Objects>
+        </Page>
+        <Page Name="ThirdPage">
+            <Objects>
+                <Paragraph>We've reached the ending. For now. I guess.</Paragraph>
+                <Choice Page="HelloPage">💩</Choice>
+            </Objects>
+        </Page>
+    </Pages>
+</s:Story>
