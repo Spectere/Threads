@@ -4,7 +4,9 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.6.1" />
-    <PackageReference Include="Avalonia.Desktop" Version="0.6.1" />
+    <PackageReference Include="GtkSharp" Version="3.22.24.36" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Threads.Player\Threads.Player.csproj" />
   </ItemGroup>
 </Project>
