@@ -6,7 +6,4 @@
   <ItemGroup>
     <PackageReference Include="GtkSharp" Version="3.22.24.36" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Threads.Player\Threads.Player.csproj" />
-  </ItemGroup>
 </Project>
